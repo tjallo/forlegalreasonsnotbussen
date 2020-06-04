@@ -4,14 +4,24 @@ import random
 #import local libraries
 import gameLogic.cards as cards
 import gameLogic.players as players
+import gameLogic.gameEvents as gE
 
-players.addPlayer("Tjalle")
+#Logic that adds all players to the game
+def startGame():
+    try:
+        nPlayers = int(input("How many players: "))
+    except:
+        print("Enter a number")
 
-print(f"playercount: {players.getPlayerCount()}")
-print(f"player add index 0: {players.getPlayer(0)}")
+    for i in range(nPlayers):
+        print(f"Name of player {i+1}")
+        playerName = input()
+        players.addPlayer(playerName)
 
-#Get 52 cards, and parses them to human readable format en prints it to console
-# for i in range(52):
-#     card = cards.getCard()
-#     parsed = cards.cardParser(card[0], card[1])
-#     print(parsed)
+    print()
+    print("The following players are playing:")
+    for i in range(players.getPlayerCount()):
+        print(players.getPlayer(i)[0])
+
+
+startGame()
