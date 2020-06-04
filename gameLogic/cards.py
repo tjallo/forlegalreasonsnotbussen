@@ -29,7 +29,7 @@ def cardParser(suitValue, cardValue):
     elif cardValue == 14:
         card = "Ace"
     else:
-        suit = str(cardValue)  
+        card = str(cardValue)  
     
 
     if suitValue == 0:
