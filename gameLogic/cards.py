@@ -21,26 +21,26 @@ def cardParser(suitValue, cardValue):
     suit = ""
     card = ""
     if cardValue == 11:
-        suit = "Jack"
+        card = "Jack"
     elif cardValue == 12:
-        suit = "Queen"
+        card = "Queen"
     elif cardValue == 13:
-        suit = "King"
+        card = "King"
     elif cardValue == 14:
-        suit = "Ace"
+        card = "Ace"
     else:
         suit = str(cardValue)  
     
 
     if suitValue == 0:
-        card = "Spades"
+        suit = "Spades"
     elif suitValue == 1:  
-        card = "Hearts"  
+        suit = "Hearts"  
     elif suitValue == 2:
-        card = "Diamonds"
+        suit = "Diamonds"
     elif suitValue == 3:     
-        card = "Clubs"   
+        suit = "Clubs"   
     
-    cardname = f"{suit} of {card}"
+    cardname = f"{card} of {suit}"
 
     return cardname

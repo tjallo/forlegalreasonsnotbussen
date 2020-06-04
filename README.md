@@ -23,6 +23,6 @@ Queen   -    12
 King    -    13
 Ace     -    14
 
-object in players is as folows
+object in players is as follows
 
 [name, drinks, [cards]]
