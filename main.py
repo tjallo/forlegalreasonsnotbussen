@@ -4,7 +4,7 @@ import random
 #import local libraries
 import gameLogic.cards as cards
 import gameLogic.players as players
-import gameLogic.gameEvents as gE
+import gameLogic.gameEvents as gameEvents	
 
 #Logic that adds all players to the game
 def startGame():
