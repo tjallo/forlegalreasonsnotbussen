@@ -63,13 +63,31 @@ def innerOuter(player):
     card = cards.getCard()
     playerName = players.getPlayer(player)[0]   
     players.printCurrendPlayerCards(player)
-    choice = int(input("Binnen (1) of buiten (2)"))
+    choice = int(input("Binnen (1) of buiten (2): "))
 
     if choice == 1:
         if lowest < card[1] and highest > card[1]:
             return False, card
     if choice == 2:
         if lowest > card[1] and highest < card[1]:
+            return False, card
+    return True, card
+
+def hasSuit(player):
+    currentSuits = []
+    currentcards = players.getCardArray(player)
+    for j in currentcards:
+        currentSuits.append(j[0])
+    card = cards.getCard()
+    players.printCurrendPlayerCards(player)
+
+    choice = int(input("Ik heb hem wel (1) Ik heb hem niet (2): "))
+
+    if choice == 1:
+        if card[0] in currentSuits:
+            return False, card
+    if choice == 2:
+        if card[0] not in currentSuits:
             return False, card
     return True, card
 
@@ -98,6 +116,10 @@ def roundOne():
 
     for i in range(players.getPlayerCount()):
         hasToDrink, card = innerOuter(i)
+        adjustScoreRound1(i, card, hasToDrink)
+
+    for i in range(players.getPlayerCount()):
+        hasToDrink, card = hasSuit(i)
         adjustScoreRound1(i, card, hasToDrink)
 
 
