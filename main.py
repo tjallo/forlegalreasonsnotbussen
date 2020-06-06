@@ -34,24 +34,42 @@ def redBlack(player):
             return True, card
     return False, card
 
+def highLow(player):
+    currentcard = players.getCardArray(player)[0]
+    card = cards.getCard()
+    playerName = players.getPlayer(player)[0]
+    print(f"{playerName} heeft op het moment de kaart: {cards.cardParser(currentcard[0], currentcard[1])}") 
+    choice = int(input("Hoger (1) of lager (2): "))
+    if choice == 1:
+        if card[1] > currentcard[1]:
+            return False, card
+    elif choice == 2:
+        if card[1] < currentcard[1]:
+            return False, card
+    return True, card
+    
+    
+
 
 def adjustScoreRound1(player, card, drinkBool):
     if drinkBool == True:
         players.addDrink(1, player)
-        print(f"Fout! Je kaart was: {cards.cardParser(card[0], card[1])}, drink 1 slok")
+        print(f"-> Fout! Je kaart was: {cards.cardParser(card[0], card[1])}, drink 1 slok")
     else:
-        print(f"Goed! Je kaart was: {cards.cardParser(card[0], card[1])}")             
+        print(f"-> Goed! Je kaart was: {cards.cardParser(card[0], card[1])}")             
     players.addCard(card, player)
-    print('\n')
+    playerinfo = players.getPlayer(player)
+    players.printCurrendPlayerCards(player)
+    print('--------------------------------\n')
 
 def roundOne():
     for i in range(players.getPlayerCount()):
         hasToDrink, card = redBlack(i)
         adjustScoreRound1(i, card, hasToDrink)
-
-players.addPlayer("Tjalle")
-players.addPlayer("Daan")
-players.addPlayer("Thimo")
-players.addPlayer("Mika")
-
+    
+    for i in range(players.getPlayerCount()):
+        hasToDrink, card = highLow(i)
+        adjustScoreRound1(i, card, hasToDrink)
+        
+startGame()
 roundOne()

@@ -1,3 +1,4 @@
+import gameLogic.cards as cards
 #Initsialise Empty array to carry playerdatas
 players = []
 
@@ -18,5 +19,16 @@ def addDrink(n, playerIndex):
     players[playerIndex][1] += n
     return players[playerIndex][1]
 
+#add card to player database
 def addCard(card, playerIndex):
-    players[2].append(card)
+    players[playerIndex][2].append(card)
+
+def getCardArray(playerIndex):
+    return players[playerIndex][2]
+
+def printCurrendPlayerCards(playerIndex):
+    print(f"{players[playerIndex][0]} heeft de volgende kaarten:")
+    cardArray = players[playerIndex][2]
+    print()
+    for card in cardArray:
+        print(cards.cardParser(card[0], card[1]))
