@@ -2,10 +2,10 @@
  
 Suits - SuitValue
 
-Spades      -    0
-Hearts      -    1
-Diamonds    -    2
-Clubs       -    3
+Spades      -    0 black
+Hearts      -    1 red
+Diamonds    -    2 red
+Clubs       -    3 black
 
 Card - Value
 
