@@ -69,7 +69,7 @@ def innerOuter(player):
         if lowest < card[1] and highest > card[1]:
             return False, card
     if choice == 2:
-        if lowest > card[1] and highest < card[1]:
+        if card[1] < lowest or card[1] > highest
             return False, card
     return True, card
 
@@ -123,8 +123,5 @@ def roundOne():
         adjustScoreRound1(i, card, hasToDrink)
 
 
-players.addPlayer("Henk")
-players.addPlayer("Klaas")
-players.addPlayer("Jan")
-
+startGame()
 roundOne()
