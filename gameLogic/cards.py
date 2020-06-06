@@ -40,13 +40,13 @@ def cardParser(suitValue, cardValue):
     
 
     if suitValue == 0:
-        suit = "Spades"
+        suit = "Spades (Black)"
     elif suitValue == 1:  
-        suit = "Hearts"  
+        suit = "Hearts (Red)"  
     elif suitValue == 2:
-        suit = "Diamonds"
+        suit = "Diamonds (Red)"
     elif suitValue == 3:     
-        suit = "Clubs"   
+        suit = "Clubs (Black)"   
     
     cardname = f"{card} of {suit}"
 

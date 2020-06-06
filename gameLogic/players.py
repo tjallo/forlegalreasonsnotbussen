@@ -10,10 +10,13 @@ def getPlayerCount():
     return len(players)
 
 #Return player at index
-def getPlayer(index):
-    return players[index]
+def getPlayer(playerIndex):
+    return players[playerIndex]
 
 #Adds one drink to playerindex, returns new count
 def addDrink(n, playerIndex):
-    players[playerIndex] += n
-    return players[playerIndex]
+    players[playerIndex][1] += n
+    return players[playerIndex][1]
+
+def addCard(card, playerIndex):
+    players[2].append(card)
